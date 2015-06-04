@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="colegio">
+<head>
+	<title>Colegio Creacion San Pedro de la Paz</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular.min.js" ></script>
+</head>
+<body>
+<div ng-controller="promedios">
+<h1>Listados</h1>
+	<ul>
+		<li ng-repeat = "nombreCompleto in alumnos">
+			{{nombreCompleto.nombre}} {{nombreCompleto.apellido}}
+		</li>
+	</ul>
+</div>
+<script>
+	var miAplicacion = angular.module( "colegio" , [] )
+	miAplicacion.controller ( "promedios", [ '$scope', function($scope){
+
+		$scope.alumnos = [
+
+			{ nombre: "Arnaldo" , apellido: "Ramirez" },
+			{ nombre: "Reynaldo" , apellido: "Coria" },
+			{ nombre: "Gonzalo" , apellido: "Bravo" },
+			{ nombre: "Jaime" , apellido: "Betanzo" },
+			{ nombre: "Mauricio" , apellido: "Bustamante" },
+			{ nombre: "Carlos" , apellido: "Pinto" },
+			{ nombre: "Franco" , apellido: "Moreno" }
+		]
+
+	}])
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="comidaRapida">
+<head>
+	<title>Gordinflon - Comida rapida al instante</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular.min.js" ></script>
+</head>
+<body>
+<div ng-controller="ventaComidaRapida">
+<label>Papas fritas: </label><input type="text" ng-model="cantPapasFritas" /><br />
+<label>Bebidas: </label><input type="text" ng-model="cantBebidas" /><br />
+<label>Italiano:</label> <input type="text" ng-model="cantItaliano" /> <br />
+<label>Especial:</label> <input type="text" ng-model="cantEspecial" /> <br />
+<label>Mechada:</label> <input type="text" ng-model="cantMechada" /> <br />
+<label>Country:</label> <input type="text" ng-model="cantCountry" /> <br />
+<button ng-click="calcularPrecio()">Calcular Precio</button>
+Precio total: {{ precioTotal | currency }}
+</div>
+
+<script>
+
+	var miAplicacion = angular.module( "comidaRapida", [] )
+	miAplicacion.controller ( "ventaComidaRapida", [ '$scope', function($scope){
+
+		$scope.cantPapasFritas = 0
+		$scope.cantBebidas = 0
+		$scope.cantItaliano = 0
+		$scope.cantEspecial = 0
+		$scope.cantMechada = 0
+		$scope.cantCountry = 0
+		var papasFritas = 1200
+		var bebidas = 700
+		var italiano = 1100
+		var especial = 1300
+		var mechada = 1600
+		var country = 1500
+
+		$scope.calcularPrecio = function(){
+			$scope.precioTotal = ($scope.cantPapasFritas * papasFritas) + ($scope.cantBebidas * bebidas) + ($scope.cantItaliano * italiano) + ($scope.cantMechada * mechada) + ($scope.cantCountry * country)
+		}
+
+
+	}])
+
+</script>
+</body>
+</html>

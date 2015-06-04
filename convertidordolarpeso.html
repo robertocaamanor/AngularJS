@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="convertidor">
+<head>
+	<title>Convertidor de Moneda - Dolar/Peso</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular.min.js" ></script>
+	<script src="http://www.gael.cl:3000/monedas" ></script>
+</head>
+<body>
+<div ng-controller="dolarpeso">
+	<label>Valor en Dolares: </label><input type="text" ng-model="valorDolar" /><br />
+	<button ng-click="calcularValor()">Calcular Valor</button>
+	Valor en CLP: {{ valorPeso | currency }}
+</div>
+<script>
+	var miAplicacion = angular.module( "convertidor" , [] )
+	miAplicacion.controller ( "dolarpeso", [ '$scope', function($scope){
+
+		var valorDolarActual = 613
+
+		$scope.calcularValor = function(){
+			$scope.valorPeso = $scope.valorDolar * valorDolarActual
+		}
+
+	}])
+</script>
+
+</body>
+</html>
